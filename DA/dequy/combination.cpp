@@ -58,8 +58,9 @@ int main()
 }
 /*Vòng lặp for:
 
-v = x[i - 1] + 1: Bắt đầu vòng lặp với giá trị v là giá trị của phần tử trước đó (tức là x[i - 1]) cộng 1. Điều này giúp đảm bảo rằng ta không lặp lại các giá trị đã chọn trước đó.
-v <= n - k + i: Điều kiện lặp để đảm bảo rằng giá trị v không vượt quá giới hạn của tập (tức là n - k + i).
+v = x[i - 1] + 1: Bắt đầu vòng lặp với giá trị v là giá trị của phần tử trước đó (tức là x[i - 1]) cộng 1. 
+Điều này giúp đảm bảo rằng ta không lặp lại các giá trị đã chọn trước đó.
+v <= n - k + i or [n - (k-i)]: Điều kiện lặp để đảm bảo rằng giá trị v không vượt quá giới hạn của tập (tức là n - k + i).
 v++: Tăng giá trị v lên sau mỗi lần lặp.
 Kiểm tra và thực hiện đệ quy:
 
