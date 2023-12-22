@@ -54,7 +54,7 @@ void solve()
     {
         if (trace[i][j] == 'D')
         {
-            //printf("%d ", X[i]);
+            printf("%d ", X[i]);
             i = i - 1;
             j = j - 1;
         }
@@ -67,7 +67,7 @@ void solve()
             j = j - 1;
         }
     }
-    //printf("\n");
+    printf("\n");
     printf("%d", S[n][m]);
 }
 
