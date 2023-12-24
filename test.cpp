@@ -1,38 +1,51 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
+#include <algorithm>
 
 using namespace std;
 
-const int MOD = 1e9 +7;
+int countWays(vector<int>& numbers, int year) {
+    int n = numbers.size();
+    int result = 0;
 
-int countPairs(int n, const vector<int>& arr) {
-    unordered_map<int, int> freq;
-    long long result = 0;
+    // Sắp xếp danh sách các số tự nhiên
+    sort(numbers.begin(), numbers.end());
 
-    for (int i = 0; i < n; ++i) {
-        int x = arr[i];
-        result = (result + freq[x - 1]) % MOD;
-        freq[x]++;
+    // Duyệt qua tất cả các tập con của danh sách các số tự nhiên
+    for (int mask = 1; mask < (1 << n); ++mask) {
+        vector<int> subset;
+        int sum = 0;
+
+        for (int i = 0; i < n; ++i) {
+            if (mask & (1 << i)) {
+                subset.push_back(numbers[i]);
+                sum += numbers[i];
+            }
+        }
+
+        // Kiểm tra điều kiện để đổi quà
+        if (subset.size() > 0 && sum >= year && sum % 5 == 0) {
+            ++result;
+        }
     }
 
-    return static_cast<int>(result);
+    return result;
 }
 
 int main() {
-    // Đọc dữ liệu đầu vào
     int n;
     cin >> n;
 
-    vector<int> arr(n);
+    vector<int> numbers(n);
     for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
+        cin >> numbers[i];
     }
 
-    // Tính và in ra kết quả
-    int result = countPairs(n, arr);
-    cout << result << endl;
+    int year;
+    cin >> year;
+
+    int ways = countWays(numbers, year);
+    cout << ways << endl;
 
     return 0;
 }
-

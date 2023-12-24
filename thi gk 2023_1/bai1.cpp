@@ -1,23 +1,36 @@
-/*bai1 : cho dãy số nguyên a[1], a[2],..,a[n]. hãy đếm Q số các cặp 2 chỉ số khác  i và j trong dãy sao cho hai phần tử a[i]và a[j] chênh lệch nhau 1 đơn vị
- và 1<=i<j<=n 
- input:
- dòng 1: chứa số nguyên dương n (1 <=n <= 10000)
- dòng 2: chứa n số nguyên a[1],a[2],...,a[n] (1<= a[i]<1000000)
- kết quả:
- ghi ra 1 số nguyên duy nhất là số dư của Q khi chia cho 10^9 +7
- ví dụ:input: 
- 5
- 5 2 5 3 2
- output:
- 2
- */
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
 using namespace std;
 
-#define N 10005
+const int MOD = 1e9 +7;
 
 
-int main(){
+
+int main() {
+    // Đọc dữ liệu đầu vào
+    int n;
+    int cnt =0;
+    cin >> n;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    for(int i = 0; i<=n;i++){
+        for(int j = i +1; j <=n;j++){
+            if(arr[i] == arr[j] +1 || arr[i] == arr[j] -1){
+                cnt++;
+            }
+        }
+    }
+    int res;
+    res = cnt % MOD;
+    // Tính và in ra kết quả
+
+    cout << res << endl;
+
     return 0;
-
 }
+

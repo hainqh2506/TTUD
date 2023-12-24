@@ -1,37 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-
+#include<bits/stdc++.h>
+#define N 2001
 using namespace std;
+int n,k;
+int arr[N];
 
-const int MOD = 1000000007;
-
-int countPairs(int n, const vector<int>& arr) {
-    unordered_map<int, int> freq;
-    long long result = 0;
-
-    for (int i = 0; i < n; ++i) {
-        int x = arr[i];
-        result = (result + freq[x - 1]) % MOD;
-        freq[x]++;
+vector<vector<int>> res;
+void out(int n){
+    vector <int> temp;
+    for(int i =1; i<=n; i++){
+        
     }
-
-    return static_cast<int>(result);
-}
-
-int main() {
-    // Đọc dữ liệu đầu vào
-    int n;
-    cin >> n;
-
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-
-    // Tính và in ra kết quả
-    int result = countPairs(n, arr);
-    cout << result << endl;
-
-    return 0;
 }
