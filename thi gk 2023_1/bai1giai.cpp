@@ -6,6 +6,7 @@ using namespace std;
 
 const int MOD = 1000000007;
 // The chiu, search ra the
+// ma t thay bai 1 dung ma
 
 int countPairs(int n, const vector<int>& arr) {
     unordered_map<int, int> freq;
