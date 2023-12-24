@@ -1,3 +1,5 @@
+
+/* bai 1 sai roi*/
 /* bai 2: một công ty sữa muốn tri ân khách hàng, công ty in vào mỗi hộp sữa tươi một số tự nhiên được lấy từ một dach sách các số tự nhiên bí mật
  khác nhau cho trước. Người tiêu dùng nếu như thu thập một tập các hộp sữa tươi sao cho các số tự nhiên trong các hộp số tự nhiên này khac nhau
  và tổng của chúng lớn hơn hoặc bằng năm thành lập công ty và chia hết cho 5 thì sẽ được tặng thêm quà là 1 hộp sữa tươi. Hỏi có bao nhiêu cách thu thập các hộp

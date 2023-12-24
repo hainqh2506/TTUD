@@ -1,34 +1,38 @@
-// bai 1 test sdfsd
-#include <bits/stdc++.h>
-using namespace std;
-#define N 1000005
-long long Q = 1e9 + 7;
+#include <iostream>
+#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
-int main()
-{
-    int a[N];
+const int MOD = 1e9 +7;
+
+int countPairs(int n, const vector<int>& arr) {
+    unordered_map<int, int> freq;
+    long long result = 0;
+
+    for (int i = 0; i < n; ++i) {
+        int x = arr[i];
+        result = (result + freq[x - 1]) % MOD;
+        freq[x]++;
+    }
+
+    return static_cast<int>(result);
+}
+
+int main() {
+    // Đọc dữ liệu đầu vào
     int n;
-    int cnt = 0;
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        scanf("%d", &a[i]);
+    cin >> n;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
     }
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = i; j <= n; j++)
-        {
-            if (a[i] == a[j] + 1 || a[i] == a[j] - 1)
-            {
-                cnt++;
-            }
-        }
-    }
-       int res;
-    res = cnt / Q;
-    printf("%d", res);
+
+    // Tính và in ra kết quả
+    int result = countPairs(n, arr);
+    cout << result << endl;
 
     return 0;
 }
+

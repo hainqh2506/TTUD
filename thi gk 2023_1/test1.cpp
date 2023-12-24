@@ -1,32 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
 
-#include <bits/stdc++.h>
-#define N 1000005
-long long Q = 1e9 + 7;
-int a[N];
-unsigned int n;
-int count = 0;
 using namespace std;
 
-void sol()
-{
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            if(a[i]==a[j]+1 || a[i]==a[j]-1){
-                count ++;
-            }
-        }
+const int MOD = 1000000007;
+
+int countPairs(int n, const vector<int>& arr) {
+    unordered_map<int, int> freq;
+    long long result = 0;
+
+    for (int i = 0; i < n; ++i) {
+        int x = arr[i];
+        result = (result + freq[x - 1]) % MOD;
+        freq[x]++;
     }
+
+    return static_cast<int>(result);
 }
 
-int main()
-{
-    scanf("%d", n);
-    for (int i = 1; i <= n; i++)
-    {
-        scanf("%d", a[i]);
+int main() {
+    // Đọc dữ liệu đầu vào
+    int n;
+    cin >> n;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
     }
+
+    // Tính và in ra kết quả
+    int result = countPairs(n, arr);
+    cout << result << endl;
 
     return 0;
 }
