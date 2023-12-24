@@ -26,7 +26,7 @@ int main()
             }
         }
     }
-    int res;
+       int res;
     res = cnt / Q;
     printf("%d", res);
 

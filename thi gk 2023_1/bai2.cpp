@@ -18,3 +18,6 @@ input :
 output:
 2
 */
+/* giải thích ví dụ: kết quả bằng 2,
+     vì có 2 tập hợp thoả mãn tổng các phần tử ít nhẩ 1901 và chia hết cho 5 là {1000, 1600} và {1000,1600,200}*/
+ 
