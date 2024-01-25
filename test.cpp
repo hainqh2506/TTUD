@@ -1,51 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-int countWays(vector<int>& numbers, int year) {
-    int n = numbers.size();
-    int result = 0;
-
-    // Sắp xếp danh sách các số tự nhiên
-    sort(numbers.begin(), numbers.end());
-
-    // Duyệt qua tất cả các tập con của danh sách các số tự nhiên
-    for (int mask = 1; mask < (1 << n); ++mask) {
-        vector<int> subset;
-        int sum = 0;
-
-        for (int i = 0; i < n; ++i) {
-            if (mask & (1 << i)) {
-                subset.push_back(numbers[i]);
-                sum += numbers[i];
-            }
+int n,m,a[1001][1001];
+void initwsolve(){
+    cin>>m>>n;
+    for(int i=0; i <m;i++){
+        for(int j=0;j<n;j++){
+            cin>>a[i][j]
+        }
+        if(i==0||j==0){
+            a[i][j]=1;
+            else a[i][j] = a[i-1][j] + a[i][j+1];
         }
 
-        // Kiểm tra điều kiện để đổi quà
-        if (subset.size() > 0 && sum >= year && sum % 5 == 0) {
-            ++result;
-        }
     }
-
-    return result;
+    cout <<a[m-1][n-1]<<endl;
 }
-
-int main() {
-    int n;
-    cin >> n;
-
-    vector<int> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> numbers[i];
-    }
-
-    int year;
-    cin >> year;
-
-    int ways = countWays(numbers, year);
-    cout << ways << endl;
-
+int main(){
+    
+    initwsolve();
     return 0;
 }
+
